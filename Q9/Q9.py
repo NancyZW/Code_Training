@@ -17,12 +17,22 @@ class Solution:
             self.stack1.append(self.stack2.pop())
         return ans
 
+    def pop2(self):
+        if len(self.stack2) != 0:
+            return self.stack2.pop()
+        else:
+            while len(self.stack1) != 0:
+                self.stack2.append(self.stack1.pop())
+            # print(self.stack2)
+            ans = self.stack2.pop()
+            return ans
+
 sol = Solution()
 sol.push(1)
 sol.push(2)
 sol.push(3)
-print(sol.pop())
-print(sol.pop())
-print(sol.pop())
+print(sol.pop2())
+print(sol.pop2())
+print(sol.pop2())
 
 
